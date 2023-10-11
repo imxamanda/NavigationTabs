@@ -53,6 +53,6 @@ const styles = StyleSheet.create({
   },
   tagItem: {
     marginRight: 10,
-    backgroundColor: '#e6d1e9'
+    backgroundColor: '#e6d0ea'
   },
 });
