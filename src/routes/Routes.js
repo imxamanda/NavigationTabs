@@ -1,25 +1,44 @@
-import React from 'react'
-import { NavigationContainer, Text } from '@react-navigation/native'
-import { createStackNavigator} from '@react-navigation/stack'
+import { NavigationContainer } from "@react-navigation/native";
+// import { createStackNavigator } from '@react-navigation/stack';
 
-//ROTAS
-import Usuarios from '../screens/usuarios/Usuarios'
-import Posts from '../screens/posts/Posts'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Stack = createStackNavigator()
+import Ionicons from '@expo/vector-icons/Ionicons';
+import Users from "../screens/usuarios/Usuarios";
+import Posts from "../screens/posts/Posts";
+
+const Tab = createBottomTabNavigator();
 
 export default function Router() {
   return (
-     <NavigationContainer>
+    <NavigationContainer>
 
-        <Stack.Navigator initialRouteName='Home'> 
+      <Tab.Navigator
+        initialRouteName="Users"
+      >
 
-            <Stack.Screen name='Usuários' component={Usuarios}/>
-            <Stack.Screen name='Posts' component={Posts}/>
+        <Tab.Screen
+          name="Users"
+          component={Users}
+          options={{
+            tabBarLabel: 'Usuários',
+            tabBarIcon: ({ color, size }) => {
+              return <Ionicons name="ios-people-circle-outline" size={24} color="black" />
+            }
+          }} />
 
-        </Stack.Navigator>
+        <Tab.Screen
+          name="Posts"
+          component={Posts}
+          options={{
+            tabBarLabel: 'Posts',
+            tabBarIcon: ({ color, size }) => {
+              return <Ionicons name="book-outline" size={24} color="black" />
+            }
+          }} />
 
+      </Tab.Navigator>
 
-     </NavigationContainer>
+    </NavigationContainer>
   )
 }

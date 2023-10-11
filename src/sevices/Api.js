@@ -1,8 +1,7 @@
-import Axios from "axios"
+import axios from "axios";
 
-
-const Api = Axios.create({
+const Api = axios.create({
     baseURL: "https://dummyjson.com/"
 })
 
-export default Api
+export default Api 
